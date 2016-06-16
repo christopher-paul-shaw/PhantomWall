@@ -1,7 +1,11 @@
 <?php
-# Display PHP Errors
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+/*
+    Name: PhantomWall
+    Created By: Christopher Shaw
+    Website: https://www.chris-shaw.com
+    Description: Novelty test program while playing with PDO
+    Disclaimer: Font "Creeper" from Google Web Fonts
+*/
 
 # Include Configuration file for DB Credentials
 include 'libs/config.php';
