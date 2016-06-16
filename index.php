@@ -15,6 +15,7 @@ $db = new PDO("mysql:host={$db_host};dbname={$db_name};charset=utf8mb4", $db_use
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
+# Application Class
 class Wall {
     
     public function __construct ($db) {
@@ -48,12 +49,15 @@ class Wall {
     
 }
 
+# Define Variables
 $message = isset($_POST['message']) ? $_POST['message'] : false;
 $delete = isset($_GET['delete']) ? $_GET['delete'] : false;
 $reset = isset($_GET['reset']);
 
+# Call Class
 $app = new Wall($db);
 
+# Data Controller
 switch (true) {
     case $message:
         $app->insert($message);
@@ -74,6 +78,7 @@ if(isset($reload)){
     die();
 }
 
+# Build Content
 $data = $app->data();
 foreach ($data as $r) {
     $left = rand(100,1700);
